@@ -1,19 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>welcome</title>
-</head>
-<body class="body">
-    <div class="box">
-      <h2>thanku! for submit your detail .</h2>
-      <h2>for fill  more form <a href="new.php">click here !</a></h2>
-    </div>
-    
+<form method="post">        
+Enter a Number: <input type="text" name="num"/><br>  
+<button type="submit">Check</button>  
+</form>  
+<?php   
+    if(isset($_POST['num']))  
+    {  
+        //get the value from form  
+        $num = $_POST['num'];  
+        $rev=0;
+        $temp=$num;
+        $rem;
+        //reversing the number  
+        while(floor($temp)){
+          $rem=$temp%10;
+          $rev=$rev*10+$rem;
+          $temp=$temp/10;
+        }
 
-</body>
-<script src="script.js">
-</script>
-</html>
+        //checking if the number and reverse is equal  
+        if($rev == $num){  
+            echo "The number $num is Palindrome";
+            echo $rev;     
+        }else{  
+            echo "The number $num is not a Palindrome";   
+            echo $rev;
+        }  
+}     
+      ?> 
